@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synergychat-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synergychat-web
+  template:
+    metadata:
+      labels:
+        app: synergychat-web
+    spec:
+      containers:
+        - name: synergychat-web
+          image: bootdotdev/synergychat-web:latest
+          ports:
+            - containerPort: 8080
